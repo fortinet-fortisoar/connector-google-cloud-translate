@@ -1,0 +1,126 @@
+{
+  "name": "google-cloud-translate",
+  "label": "Google Cloud Translate",
+  "version": "1.0.0",
+  "description": "Google Cloud translation technology to instantly translate texts into more than one hundred languages",
+  "publisher": "Community",
+  "cs_approved": false,
+  "cs_compatible": true,
+  "category": "Google service",
+  "icon_small_name": "small.png",
+  "icon_large_name": "large.png",
+  "help_online": "",
+  "configuration": {
+    "fields": [
+      {
+        "title": "Service Account Private Key",
+        "tooltip": "Service Account Private Key file contents",
+        "description": "Service Account Private Key file contents",
+        "required": true,
+        "editable": true,
+        "visible": true,
+        "type": "file",
+        "name": "service_account_data"
+      },
+      {
+        "title": "Google Cloud Translate Project",
+        "tooltip": "Project in Google Cloud Translate",
+        "description": "Project in Google Cloud Translate",
+        "required": false,
+        "editable": true,
+        "visible": true,
+        "type": "text",
+        "name": "project_name"
+      },
+      {
+        "title": "Verify SSL",
+        "description": "Specifies whether the SSL certificate for the server is to be verified or not.By default, this option is set as True.",
+        "required": false,
+        "editable": true,
+        "visible": true,
+        "type": "checkbox",
+        "name": "verify_ssl",
+        "value": true
+      }
+    ]
+  },
+  "operations": [
+    {
+      "operation": "translate_text",
+      "title": "Translate Text",
+      "description": "Translates input text based on input parameters and returns translated text.",
+      "category": "investigation",
+      "annotation": "translate_text",
+      "output_schema": {},
+      "parameters": [
+        {
+          "title": "Input Text",
+          "description": "The input text to translate. Provide an array of strings to translate multiple phrases. The maximum number of strings is 128.",
+          "tooltip": "The input text to translate. Provide an array of strings to translate multiple phrases. The maximum number of strings is 128.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "input_text"
+        },
+        {
+          "title": "Target",
+          "description": "The language to use for translation of the input text",
+          "tooltip": "The language to use for translation of the input text",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "options": ["Afrikaans", "Albanian", "Amharic", "Arabic", "Armenian", "Azerbaijani", "Basque", "Belarusian", "Bengali", "Bosnian", "Bulgarian", "Catalan", "Cebuano", "Chinese (Simplified)", "Chinese (Traditional)", "Corsican", "Croatian", "Czech", "Danish", "Dutch", "English", "Esperanto", "Estonian", "Finnish", "French", "Frisian", "Galician", "Georgian", "German", "Greek", "Gujarati", "Haitian Creole", "Hausa", "Hawaiian", "Hebrew", "Hindi", "Hmong", "Hungarian", "Icelandic", "Igbo", "Indonesian", "Irish", "Italian", "Japanese", "Javanese", "Kannada", "Kazakh", "Khmer", "Kinyarwanda", "Korean", "Kurdish", "Kyrgyz", "Lao", "Latvian", "Lithuanian", "Luxembourgish", "Macedonian", "Malagasy", "Malay", "Malayalam", "Maltese", "Maori", "Marathi", "Mongolian", "Myanmar (Burmese)", "Nepali", "Norwegian", "Nyanja (Chichewa)", "Odia (Oriya)", "Pashto", "Persian", "Polish", "Portuguese (Portugal, Brazil)", "Punjabi", "Romanian", "Russian", "Samoan", "Scots Gaelic", "Serbian", "Sesotho", "Shona", "Sindhi", "Sinhala (Sinhalese)", "Slovak", "Slovenian", "Somali", "Spanish", "Sundanese", "Swahili", "Swedish", "Tagalog (Filipino)", "Tajik", "Tamil", "Tatar", "Telugu", "Thai", "Turkish", "Turkmen", "Ukrainian", "Urdu", "Uyghur", "Uzbek", "Vietnamese", "Welsh", "Xhosa", "Yiddish", "Yoruba", "Zulu"],
+          "name": "target"
+        },
+        {
+          "title": "Format",
+          "description": "The format of the source text, in either HTML (default) or plain-text.",
+          "tooltip": "The format of the source text, in either HTML (default) or plain-text.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "options": ["HTML Text", "Plain Text"],
+          "value": "HTML Text",
+          "name": "format"
+        },
+        {
+          "title": "Source",
+          "description": "The language of the source text, set to one of the language codes listed in Language Support. If the source language is not specified, the API will attempt to detect the source language automatically and return it within the response.",
+          "tooltip": "The language of the source text, set to one of the language codes listed in Language Support. If the source language is not specified, the API will attempt to detect the source language automatically and return it within the response.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "options": ["Afrikaans", "Albanian", "Amharic", "Arabic", "Armenian", "Azerbaijani", "Basque", "Belarusian", "Bengali", "Bosnian", "Bulgarian", "Catalan", "Cebuano", "Chinese (Simplified)", "Chinese (Traditional)", "Corsican", "Croatian", "Czech", "Danish", "Dutch", "English", "Esperanto", "Estonian", "Finnish", "French", "Frisian", "Galician", "Georgian", "German", "Greek", "Gujarati", "Haitian Creole", "Hausa", "Hawaiian", "Hebrew", "Hindi", "Hmong", "Hungarian", "Icelandic", "Igbo", "Indonesian", "Irish", "Italian", "Japanese", "Javanese", "Kannada", "Kazakh", "Khmer", "Kinyarwanda", "Korean", "Kurdish", "Kyrgyz", "Lao", "Latvian", "Lithuanian", "Luxembourgish", "Macedonian", "Malagasy", "Malay", "Malayalam", "Maltese", "Maori", "Marathi", "Mongolian", "Myanmar (Burmese)", "Nepali", "Norwegian", "Nyanja (Chichewa)", "Odia (Oriya)", "Pashto", "Persian", "Polish", "Portuguese (Portugal, Brazil)", "Punjabi", "Romanian", "Russian", "Samoan", "Scots Gaelic", "Serbian", "Sesotho", "Shona", "Sindhi", "Sinhala (Sinhalese)", "Slovak", "Slovenian", "Somali", "Spanish", "Sundanese", "Swahili", "Swedish", "Tagalog (Filipino)", "Tajik", "Tamil", "Tatar", "Telugu", "Thai", "Turkish", "Turkmen", "Ukrainian", "Urdu", "Uyghur", "Uzbek", "Vietnamese", "Welsh", "Xhosa", "Yiddish", "Yoruba", "Zulu"],
+          "name": "source"
+        },
+        {
+          "title": "Model",
+          "description": "The translation model. Cloud Translation - Basic offers only the nmt Neural Machine Translation (NMT) model.If the model is base, the request is translated by using the NMT model",
+          "tooltip": "The translation model. Cloud Translation - Basic offers only the nmt Neural Machine Translation (NMT) model.If the model is base, the request is translated by using the NMT model",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "model"
+        }
+      ],
+      "enabled": true
+    },
+    {
+      "operation": "get_supported_languages",
+      "title": "Get Languages",
+      "description": "Returns a list of supported languages for translation.",
+      "category": "investigation",
+      "annotation": "get_supported_languages",
+      "output_schema": {},
+      "parameters": [
+      ],
+      "enabled": true
+    }
+  ]
+}
+
