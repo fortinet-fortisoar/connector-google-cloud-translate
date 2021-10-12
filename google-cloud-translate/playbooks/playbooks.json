@@ -1,0 +1,217 @@
+{
+  "type": "workflow_collections",
+  "data": [
+    {
+      "@type": "WorkflowCollection",
+      "name": "Sample - Google Cloud Translate - 1.0.0",
+      "description": null,
+      "visible": true,
+      "image": null,
+      "uuid": "e466c839-7283-4fd3-b876-6a630487c6ee",
+      "id": 414,
+      "createUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+      "createDate": 1632821968,
+      "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+      "modifyDate": 1632821968,
+      "recordTags": [],
+      "workflows": [
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Languages",
+          "aliasName": null,
+          "tag": null,
+          "description": "Returns a list of supported languages for translation.",
+          "isActive": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1632822310,
+          "collection": "/api/3/workflow_collections/e466c839-7283-4fd3-b876-6a630487c6ee",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/e1e0e3f9-c99b-4d8f-9a55-5adb6f1920ec",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Languages",
+              "description": null,
+              "arguments": {
+                "name": "Google Cloud Translate",
+                "config": "5eba06b3-e79b-4cf2-9738-d76a9a449cd5",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "google-cloud-translate",
+                "operation": "get_supported_languages",
+                "operationTitle": "Get Languages",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "121",
+              "left": "325",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "3781086a-693d-48e9-bda6-6ebc9508d31f",
+              "id": 12231
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "30d7f6af-57e8-426f-9e99-544f11325528",
+                "title": "Google Cloud Translate: Get Languages",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "40",
+              "left": "40",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "uuid": "e1e0e3f9-c99b-4d8f-9a55-5adb6f1920ec",
+              "id": 12230
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Get Languages",
+              "targetStep": "/api/3/workflow_steps/3781086a-693d-48e9-bda6-6ebc9508d31f",
+              "sourceStep": "/api/3/workflow_steps/e1e0e3f9-c99b-4d8f-9a55-5adb6f1920ec",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "92822639-49fa-480e-b21f-a48ecd94b1e7"
+            }
+          ],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "7124e53a-fb62-4dea-9ab3-0b399e378efc",
+          "recordTags": [
+            "Google",
+            "google-cloud-translate"
+          ],
+          "id": 4143,
+          "createUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "createDate": 1632822236,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1632822326,
+          "owners": [],
+          "isPrivate": false
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Translate Text",
+          "aliasName": null,
+          "tag": null,
+          "description": "Translates input text based on input parameters and returns translated text.",
+          "isActive": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1632822182,
+          "collection": "/api/3/workflow_collections/e466c839-7283-4fd3-b876-6a630487c6ee",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/dbebb171-233b-43b0-a40a-01f39df4b50d",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Translate Text",
+              "description": null,
+              "arguments": {
+                "name": "Google Cloud Translate",
+                "config": "5eba06b3-e79b-4cf2-9738-d76a9a449cd5",
+                "params": {
+                  "model": "base",
+                  "format": "Plain Text",
+                  "source": "",
+                  "target": "French",
+                  "input_text": "sample text to translate"
+                },
+                "version": "1.0.0",
+                "connector": "google-cloud-translate",
+                "operation": "translate_text",
+                "operationTitle": "Translate Text",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "122",
+              "left": "352",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "afc505d8-bbb1-435c-8572-e487500ec4f3",
+              "id": 12229
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "75c90844-5965-4be4-a771-76735b675c3a",
+                "title": "Google Cloud Translate: Translate Text",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "40",
+              "left": "40",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "uuid": "dbebb171-233b-43b0-a40a-01f39df4b50d",
+              "id": 12228
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Translate Text",
+              "targetStep": "/api/3/workflow_steps/afc505d8-bbb1-435c-8572-e487500ec4f3",
+              "sourceStep": "/api/3/workflow_steps/dbebb171-233b-43b0-a40a-01f39df4b50d",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "09b64764-e3d9-4a8a-b799-4e55bdae9480"
+            }
+          ],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "88e1e4d7-52ed-431c-94bb-c6804015068f",
+          "recordTags": [
+            "Google",
+            "google-cloud-translate"
+          ],
+          "id": 4142,
+          "createUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "createDate": 1632822032,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1632822182,
+          "owners": [],
+          "isPrivate": false
+        }
+      ]
+    }
+  ],
+  "exported_tags": [
+    "Google",
+    "google-cloud-translate"
+  ]
+}
